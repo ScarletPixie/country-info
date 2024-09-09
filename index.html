@@ -7,6 +7,8 @@
 	<link rel="stylesheet" href="css/general.css">
 	<link rel="stylesheet" href="css/footer.css">
 	<link rel="stylesheet" href="css/navbar.css">
+	<link rel="stylesheet" href="css/search_bar.css">
+	<link rel="stylesheet" href="css/main.css">
 
 	<title>Countries Info</title>
 </head>
@@ -19,18 +21,104 @@
 			Dark Mode
 		</button>
 	</nav>
-	<section class="search">
-		<form action="index.html">
-			<input type="text" placeholder="Search for a country...">
-			<select name="filter">
-				<option value="Africa"></option>
-				<option value="America"></option>
-				<option value="Asia"></option>
-				<option value="Europe"></option>
-				<option value="Oceania"></option>
+	<section>
+		<form action="index.html" class="search">
+			<div class="search-bar rounded-corner">
+				<button class="search-bt search-padding" tabindex="0" type="submit" aria-label="search">
+					<ion-icon name="search-outline"></ion-icon>
+				</button>
+				<label aria-label="search for a country" for="search-field"></label>
+					<input type="text" name="search" placeholder="Search for a country..." class="search-input search-padding" id="search-field">
+			</div>
+			<select name="filter" class="filter-options rounded-corner filter-padding">
+				<option value="" class="sss">Filter by Region</option>
+				<option value="Africa">Africa</option>
+				<option value="America">America</option>
+				<option value="Asia">Asia</option>
+				<option value="Europe">Europe</option>
+				<option value="Oceania">Oceania</option>
 			</select>
 		</form>
 	</section>
+	<main>
+		<figure class="country-card small-shadow">
+			<img src="images/co.png" alt="">
+			<figcaption>
+				<h2>Colombia</h2>
+				<p><strong>Population: </strong><span class="ligher">6666666655588</span></p>
+				<p><strong>Region: </strong><span class="ligher">America</span></p>
+				<p><strong>Capital: </strong><span class="ligher">XXXXXXXXXX</span></p>
+			</figcaption>
+		</figure>
 
+
+		<figure class="country-card small-shadow">
+			<img src="images/co.png" alt="">
+			<figcaption>
+				<h2>Colombia</h2>
+				<p><strong>Population:</strong>66666666555556</p>
+				<p><strong>Region:</strong>America</p>
+				<p><strong>Capital:</strong>XXXXXXXXXX</p>
+			</figcaption>
+		</figure>
+		<figure class="country-card small-shadow">
+			<img src="images/co.png" alt="">
+			<figcaption>
+				<h2>Colombia</h2>
+				<p><strong>Population:</strong>66666666555556</p>
+				<p><strong>Region:</strong>America</p>
+				<p><strong>Capital:</strong>XXXXXXXXXX</p>
+			</figcaption>
+		</figure>
+		<figure class="country-card small-shadow">
+			<img src="images/co.png" alt="">
+			<figcaption>
+				<h2>Colombia</h2>
+				<p><strong>Population:</strong>66666666555556</p>
+				<p><strong>Region:</strong>America</p>
+				<p><strong>Capital:</strong>XXXXXXXXXX</p>
+			</figcaption>
+		</figure>
+		<figure class="country-card small-shadow">
+			<img src="images/co.png" alt="">
+			<figcaption>
+				<h2>Colombia</h2>
+				<p><strong>Population: </strong><span class="ligher">6666666655588</span></p>
+				<p><strong>Region: </strong><span class="ligher">America</span></p>
+				<p><strong>Capital: </strong><span class="ligher">XXXXXXXXXX</span></p>
+			</figcaption>
+		</figure>
+
+
+		<figure class="country-card small-shadow">
+			<img src="images/co.png" alt="">
+			<figcaption>
+				<h2>Colombia</h2>
+				<p><strong>Population:</strong>66666666555556</p>
+				<p><strong>Region:</strong>America</p>
+				<p><strong>Capital:</strong>XXXXXXXXXX</p>
+			</figcaption>
+		</figure>
+		<figure class="country-card small-shadow">
+			<img src="images/co.png" alt="">
+			<figcaption>
+				<h2>Colombia</h2>
+				<p><strong>Population:</strong>66666666555556</p>
+				<p><strong>Region:</strong>America</p>
+				<p><strong>Capital:</strong>XXXXXXXXXX</p>
+			</figcaption>
+		</figure>
+		<figure class="country-card small-shadow">
+			<img src="images/co.png" alt="">
+			<figcaption>
+				<h2>Colombia</h2>
+				<p><strong>Population:</strong>66666666555556</p>
+				<p><strong>Region:</strong>America</p>
+				<p><strong>Capital:</strong>XXXXXXXXXX</p>
+			</figcaption>
+		</figure>
+	</main>
+	<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

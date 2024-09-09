@@ -25,9 +25,9 @@ html, body
 	:root
 	{
 		--icon-path: url('../images/moon-light.png');
-		--shadow-color:  rgb(49, 49, 54);
-		--bg-color: #222E37;
-		--nav-bg-color: #29353E;
+		--shadow-color:  rgb(29, 29, 32);
+		--bg-color: #202d36;
+		--nav-bg-color: #2b3743;
 		--text-color: white;
 	}
 }

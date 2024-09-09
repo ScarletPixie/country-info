@@ -1,0 +1,50 @@
+main
+{
+	width: 100%;
+	box-sizing: border-box;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	padding: 0 var(--main-margin);
+	gap: 5rem;
+}
+
+figure
+{
+	word-break: break-all;
+	padding: 0;
+	margin: 0;
+}
+
+.country-card
+{
+	background-color: var(--nav-bg-color);
+}
+
+.country-card img
+{
+	width: 100%;
+}
+
+.country-card figcaption
+{
+	padding: 0 1rem 2rem;
+	
+}
+
+.country-card figcaption p
+{
+	line-height: 50%;
+}
+
+@media (width <= 500)
+{
+	main
+	{
+		grid-template-columns: 1fr;
+	}
+}
+
+.ligher
+{
+	font-weight: 300;
+}

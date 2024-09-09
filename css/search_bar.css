@@ -1,0 +1,92 @@
+.search
+{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 3rem 0;
+	margin: clamp(3vh, 3rem, 5vw) var(--main-margin);
+}
+
+.search-bar
+{
+	box-sizing: border-box;
+	display: flex;
+	flex-wrap: nowrap;
+	background-color: var(--nav-bg-color);
+	height: 3rem;
+	width: min(30rem, calc(100% - var(--main-margin) / 2));
+	box-shadow: 0px 1px 10px var(--shadow-color);
+	box-shadow: 0px -1px 10px var(--shadow-color);
+	box-shadow: 1px 0px 10px var(--shadow-color);
+	box-shadow: -1px 0px 10px var(--shadow-color);
+
+}
+
+.search-bt, .search-input, .filter-options
+{
+	box-sizing: border-box;
+	border: none;
+	height: 100%;
+	line-height: 100%;
+	background-color: var(--nav-bg-color);
+	color: var(--text-color);
+	overflow: hidden;
+	margin: 0;
+}
+
+.filter-options
+{
+	box-shadow: 0px 1px 10px var(--shadow-color);
+	box-shadow: 0px -1px 10px var(--shadow-color);
+	box-shadow: 1px 0px 10px var(--shadow-color);
+	box-shadow: -1px 0px 10px var(--shadow-color);
+}
+
+.search-input
+{
+	width: 90%;
+}
+
+.search-bt
+{
+	font-weight: bolder;
+	width: 9%;
+}
+
+.search-bt ion-icon
+{
+	font-weight: bolder;
+	width: 100%;
+}
+
+.search-bt:focus
+{
+	border: var(--text-color) solid 1px;
+}
+
+/*	general use classes	*/
+.small-shadow
+{
+	box-shadow: 0px 1px 7px var(--shadow-color);
+	box-shadow: 0px -1px 7px var(--shadow-color);
+	box-shadow: 1px 0px 7px var(--shadow-color);
+	box-shadow: -1px 0px 7px var(--shadow-color);
+}
+
+.rounded-corner
+{
+	border: solid var(--nav-bg-color) 1px;
+	border-radius: min(2vw, 1vh);
+	overflow: hidden;
+}
+
+.search-padding
+{
+	padding: 1rem 1rem;
+}
+
+.filter-padding
+{
+	padding: 1rem 2rem;
+}
+/*************************/
