@@ -1,0 +1,49 @@
+.navbar
+{
+	box-sizing: border-box;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	box-shadow: 0 -1px 10px var(--shadow-color);
+	padding: min(1vw, 1vh) var(--main-margin);
+	background-color: var(--nav-bg-color);
+	height: max(10%, 5vh)
+}
+
+h1
+{
+	font-size: clamp(1rem, 2vw, 1.5rem);
+}
+
+h1 a
+{
+	text-decoration: inherit;
+	color: inherit;
+}
+
+button[class='theme-switch-bt']
+{
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+	font-weight: bold;
+	font-size: min(3vw, 1rem);
+}
+
+button[class='theme-switch-bt']:focus
+{
+	outline: auto;
+}
+
+.theme-icon
+{
+	height: .9em;
+	width: .9em;
+	display: inline-block;
+	background-image: var(--icon-path);
+	background-size: cover;
+}

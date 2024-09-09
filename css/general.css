@@ -1,0 +1,45 @@
+html, body
+{
+	padding: 0;
+	margin: 0;
+	color: var(--text-color);
+	background-color: var(--bg-color);
+}
+
+:root
+{
+	/*constants*/
+	--main-margin: clamp(2vw, 4rem, 3vw);
+
+	--icon-path: url('../images/moon-dark.png');
+	--light-icon-path: url('../images/moon-light.png');
+	--dark-icon-path: url('../images/moon-light.png');
+	--shadow-color: rgb(207, 207, 207);
+	--text-color: black;
+	--bg-color: #FAFAFA;
+	--nav-bg-color: white;
+}
+
+@media (prefers-color-scheme: dark)
+{
+	:root
+	{
+		--icon-path: url('../images/moon-light.png');
+		--shadow-color:  rgb(49, 49, 54);
+		--bg-color: #222E37;
+		--nav-bg-color: #29353E;
+		--text-color: white;
+	}
+}
+
+@media (prefers-color-scheme: light)
+{
+	:root
+	{
+		--icon-path: url('../images/moon-dark.png');
+		--shadow-color:  rgb(207, 207, 207);
+		--text-color: black;
+		--bg-color: #FAFAFA;
+		--nav-bg-color: white;
+	}
+}
