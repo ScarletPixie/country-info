@@ -1,11 +1,45 @@
-html, body
+
+/*************** general classes **************/
+.no-style
 {
+	list-style: none;
 	padding: 0;
 	margin: 0;
-	color: var(--text-color);
-	background-color: var(--bg-color);
 }
 
+.bold-text
+{
+	font-weight: bold;
+}
+
+.small-shadow
+{
+	box-shadow: 0px 1px 7px var(--shadow-color);
+	box-shadow: 0px -1px 7px var(--shadow-color);
+	box-shadow: 1px 0px 7px var(--shadow-color);
+	box-shadow: -1px 0px 7px var(--shadow-color);
+}
+
+.rounded-corner
+{
+	border: solid var(--nav-bg-color) 1px;
+	border-radius: min(2vw, 1vh);
+	overflow: hidden;
+}
+
+.search-padding
+{
+	padding: 1rem 1rem;
+}
+
+.filter-padding
+{
+	padding: 1rem 2rem;
+}
+/************************************/
+
+
+/***************** default settings *********************/
 :root
 {
 	/*constants*/
@@ -19,7 +53,10 @@ html, body
 	--bg-color: #FAFAFA;
 	--nav-bg-color: white;
 }
+/*******************************************************/
 
+
+/************ color schemes preferences ************/
 @media (prefers-color-scheme: dark)
 {
 	:root
@@ -42,4 +79,14 @@ html, body
 		--bg-color: #FAFAFA;
 		--nav-bg-color: white;
 	}
+}
+/******************************************************/
+
+/*	misc	*/
+html, body
+{
+	padding: 0;
+	margin: 0;
+	color: var(--text-color);
+	background-color: var(--bg-color);
 }
