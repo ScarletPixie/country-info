@@ -1,6 +1,6 @@
 //	https://restcountries.com/v3.1/name/{commonName}
 
-/*	card structure
+/*
 <a href="#">
 	<figure class="country-card small-shadow rounded-corner">
 		<img src="images/co.png" alt="">
@@ -55,7 +55,9 @@ export async function createCard(jsonResponse, container)
 	countryContainer.appendChild(countryFlag);
 	countryContainer.appendChild(countryContext.container);
 
-	container.appendChild(countryContainer);
+	card.appendChild(countryContainer);
+
+	container.appendChild(card);
 }
 
 export async function createCountryDetail(jsonResponse, container)

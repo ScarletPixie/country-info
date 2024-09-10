@@ -1,6 +1,6 @@
 //	https://restcountries.com/v3.1/name/{commonName}
 
-import { createCard } from "./countryContext.js";
+import { createCard } from "./countryAPI.js";
 
 const main = document.querySelector('main');
 
