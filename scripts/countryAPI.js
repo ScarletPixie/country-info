@@ -18,7 +18,10 @@
 
 export async function createCard(jsonResponse, container)
 {
-	const [data] = await jsonResponse;
+	if (!jsonResponse || !container)
+		return;
+
+	const data = await jsonResponse;
 
 	const card = document.createElement('a');
 	card.href = `details.html?country=${data.name.common}`;
