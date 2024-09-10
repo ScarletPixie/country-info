@@ -34,7 +34,7 @@ button[class='theme-switch-bt']
 	font-size: min(3vw, 1rem);
 }
 
-button[class='theme-switch-bt']:focus
+button[class='theme-switch-bt']:focus-visible
 {
 	outline: auto;
 }

@@ -1,6 +1,6 @@
 
 /*************** general classes **************/
-.no-style
+.no-list-style
 {
 	list-style: none;
 	padding: 0;
@@ -22,7 +22,6 @@
 
 .rounded-corner
 {
-	border: solid var(--nav-bg-color) 1px;
 	border-radius: min(2vw, 1vh);
 	overflow: hidden;
 }
