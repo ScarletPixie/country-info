@@ -5,11 +5,12 @@ main
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	padding: var(--main-margin) var(--main-margin);
-	gap: 5vw;
+	gap: max(5vw, 5vh);
 }
 
 main a
 {
+	box-sizing: border-box;
 	text-decoration: none;
 	color: inherit;
 	word-break: break-all;
@@ -23,6 +24,7 @@ figure
 
 .country-card
 {
+	box-sizing: border-box;
 	background-color: var(--nav-bg-color);
 }
 
@@ -34,6 +36,7 @@ figure
 
 .country-card figcaption
 {
+	box-sizing: border-box;
 	padding: 0 1rem 2rem;
 	
 }

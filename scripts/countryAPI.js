@@ -52,8 +52,8 @@ export async function createCard(jsonResponse, container)
 		countryContext.info.appendChild(addInfoRow("Capital", data.capital));
 	}
 
-	countryFlag.src = data.flags.png;
-	countryFlag.alt = data.flags.alt;
+	countryFlag.src = data.flags.svg;
+	countryFlag.alt = (data.flags.alt) ? data.flags.alt : `${data.name.common} flag image.`;
 
 	countryContainer.appendChild(countryFlag);
 	countryContainer.appendChild(countryContext.container);
