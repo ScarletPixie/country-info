@@ -1,0 +1,16 @@
+.back-bt
+{
+	color: inherit;
+	display: inline-block;
+	box-sizing: border-box;
+
+	padding: .5rem 2rem;
+	margin: max(4vh, 4vw) var(--main-margin);
+	font-size: 1.2rem;
+	font-weight: 300;
+	background-color: var(--nav-bg-color);
+	border: none;
+
+	border-radius: min(3%, 3vh);
+	text-decoration: none;
+}

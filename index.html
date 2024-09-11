@@ -10,8 +10,14 @@
 	<link rel="stylesheet" href="css/search_bar.css">
 	<link rel="stylesheet" href="css/main.css">
 
+	<!-- Nunito Sans -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+
 	<title>Countries Info</title>
 
+	<script type="module" src="scripts/events.js"></script>
 	<script type="module" src="scripts/index.js"></script>
 </head>
 <body>
@@ -43,21 +49,21 @@
 		</form>
 	</div>
 	<main aria-label="countries">
-		<!--
-		<a href="#">
-			<figure class="country-card small-shadow rounded-corner">
-				<img src="images/co.png" alt="">
-				<figcaption>
-					<h2>Colombia</h2>
-					<ul class="no-style">
-						<li><span class="bold-text">Population: </span>88888888888</li>
-						<li><span class="bold-text">Region: </span>America</li>
-						<li><span class="bold-text">Capital: </span>asldkjaslkdjlsak</li>
-					</ul>
-				</figcaption>
-			</figure>
-		</a>
-		-->
+	<!--
+		<figure class="country-card small-shadow rounded-corner">
+			<a href="#" aria-label='...'>
+				<img src="images/co.png" alt="...">
+			</a>
+			<figcaption aria-label='country info'>
+				<h2>Colombia</h2>
+				<ul class="no-style" aria-label='additional info'>
+					<li><span class="bold-text">Population: </span>88888888888</li>
+					<li><span class="bold-text">Region: </span>America</li>
+					<li><span class="bold-text">Capital: </span>asldkjaslkdjlsak</li>
+				</ul>
+			</figcaption>
+		</figure>
+	-->
 	</main>
 	<footer>
 		<p>something</p>
