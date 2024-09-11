@@ -1,19 +1,19 @@
 //	https://restcountries.com/v3.1/name/{commonName}
 
 /*
-<a href="#">
-	<figure class="country-card small-shadow rounded-corner">
-		<img src="images/co.png" alt="">
-		<figcaption>
-			<h2>Colombia</h2>
-			<ul class="no-style">
-				<li><span class="bold-text">Population: </span>88888888888</li>
-				<li><span class="bold-text">Region: </span>America</li>
-				<li><span class="bold-text">Capital: </span>asldkjaslkdjlsak</li>
-			</ul>
-		</figcaption>
-	</figure>
-</a>
+<figure class="country-card small-shadow rounded-corner">
+	<a href="#" aria-label='...'>
+		<img src="images/co.png" alt="...">
+	</a>
+	<figcaption aria-label='country info'>
+		<h2>Colombia</h2>
+		<ul class="no-style" aria-label='additional info'>
+			<li><span class="bold-text">Population: </span>88888888888</li>
+			<li><span class="bold-text">Region: </span>America</li>
+			<li><span class="bold-text">Capital: </span>asldkjaslkdjlsak</li>
+		</ul>
+	</figcaption>
+</figure>
 */
 
 export async function createCard(jsonResponse, container)
@@ -23,37 +23,42 @@ export async function createCard(jsonResponse, container)
 
 	const data = await jsonResponse;
 
-	const card = document.createElement('a');
-	card.href = `details.html?country=${data.name.common}`;
-	card.ariaLabel = `view more details about ${data.name.common}`;
+	const cardLink = document.createElement('a');
+	cardLink.href = `details.html?country=${data.name.common}`;
+	cardLink.setAttribute('aria-label', `View more details about ${data.name.common}.`);
 
 	const countryContainer = document.createElement('figure');
 	countryContainer.classList.add('country-card', 'small-shadow', 'rounded-corner');
 
 	const countryFlag = document.createElement('img');
+	cardLink.appendChild(countryFlag);
 	const countryContext = {
 		container:	document.createElement('figcaption'),
 		name:		document.createElement('h2'),
 		info:		document.createElement('ul'),
 	};
+	countryContext.name.textContent = data.name.common;
+	countryContext.name.id = `country-${data.name.common}`;
+
 	countryContext.container.appendChild(countryContext.name);
 	countryContext.container.appendChild(countryContext.info);
+	countryContext.container.setAttribute('aria-labelledby', countryContext.name.id);
 
 	countryContext.info.classList.add('no-list-style');
-	countryContext.name.textContent = data.name.common;
 	countryContext.info.appendChild(addPopulationRow(data.population));
 	countryContext.info.appendChild(addRegionRow(data.region));
 	countryContext.info.appendChild(addCapitalsRow(data.capital));
+	countryContext.info.setAttribute('aria-label', `additional info about ${countryContext.name}`);
 
 	countryFlag.src = data.flags.svg;
 	countryFlag.alt = (data.flags.alt) ? data.flags.alt : `${data.name.common} flag image.`;
 
-	countryContainer.appendChild(countryFlag);
+	countryContainer.appendChild(cardLink);
 	countryContainer.appendChild(countryContext.container);
 
-	card.appendChild(countryContainer);
+	
 
-	container.appendChild(card);
+	container.appendChild(countryContainer);
 }
 
 export async function createCountryDetail(jsonResponse, container)
@@ -95,9 +100,8 @@ function addPopulationRow(value)
 		counter++;
 		i--;
 	}
-	console.log(valueArr);
-	row.appendChild(document.createTextNode(valueArr.join('')));
 
+	row.appendChild(document.createTextNode(valueArr.join('')));
 	return (row);
 }
 
