@@ -41,16 +41,9 @@ export async function createCard(jsonResponse, container)
 
 	countryContext.info.classList.add('no-list-style');
 	countryContext.name.textContent = data.name.common;
-	countryContext.info.appendChild(addInfoRow("Population", data.population));
-	countryContext.info.appendChild(addInfoRow("Region", data.region));
-	if (data.capital.length > 1)
-	{
-		countryContext.info.appendChild(addCapitalsRow(data.capital));
-	}
-	else
-	{
-		countryContext.info.appendChild(addInfoRow("Capital", data.capital));
-	}
+	countryContext.info.appendChild(addPopulationRow(data.population));
+	countryContext.info.appendChild(addRegionRow(data.region));
+	countryContext.info.appendChild(addCapitalsRow(data.capital));
 
 	countryFlag.src = data.flags.svg;
 	countryFlag.alt = (data.flags.alt) ? data.flags.alt : `${data.name.common} flag image.`;
@@ -70,15 +63,40 @@ export async function createCountryDetail(jsonResponse, container)
 
 
 //	helper functions
-function addInfoRow(key, value)
+function addRegionRow(value)
 {
 	const row = document.createElement('li');
 	const fieldName = document.createElement('span');
 
 	fieldName.classList.add('bold-text');
-	fieldName.textContent = `${key}: `;
+	fieldName.textContent = `Region: `;
 	row.appendChild(fieldName);
 	row.appendChild(document.createTextNode(value));
+
+	return (row);
+}
+
+function addPopulationRow(value)
+{
+	let counter = 1;
+	let valueArr = `${value}`.split('');
+	let i = valueArr.length - 1;
+	const row = document.createElement('li');
+	const fieldName = document.createElement('span');
+
+	fieldName.classList.add('bold-text');
+	fieldName.textContent = `Population: `;
+	row.appendChild(fieldName);
+
+	while (i > 0)
+	{
+		if (counter % 3 == 0)
+			valueArr.splice(i, 0, '.');
+		counter++;
+		i--;
+	}
+	console.log(valueArr);
+	row.appendChild(document.createTextNode(valueArr.join('')));
 
 	return (row);
 }
@@ -93,10 +111,10 @@ function addCapitalsRow(capitals)
 	row.appendChild(key);
 	for (let i = 0; i < capitals.length; i++)
 	{
-		row.innerHTML += document.createTextNode(capitals[i]);
+		row.appendChild(document.createTextNode(capitals[i]));
 		i++;
 		if (i < capitals.length)
-			row.innerHTML += document.createTextNode(capitals[i]);
+			row.appendChild(document.createTextNode(','));
 	}
 
 	return (row);
