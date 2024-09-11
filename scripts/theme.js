@@ -13,12 +13,10 @@ function switchTheme(switchDelayMs)
 	let timer = null;
 	if (!document.cookie)
 	{
-		document.cookie = `theme=${(window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light'}; SameSite=Lax; Secure;`;
+		document.cookie = `theme=${(window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light'}; SameSite=Lax; Secure; max-age=315360000`; // 10 years
 	}
 
 	mode = (document.cookie.split('=')[1] === 'dark') ? 1 : 0;
-	
-	console.log(document.cookie,' ', mode);
 
 	const setThemes = [lightTheme, darkTheme];
 
