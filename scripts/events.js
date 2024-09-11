@@ -1,11 +1,12 @@
 const themeSwitch = document.querySelector(".theme-switch-bt");
-const eventHandler = switchTheme();
+const eventHandler = switchTheme(50);
 themeSwitch.addEventListener('click', eventHandler);
 
 
-function switchTheme()
+function switchTheme(switchDelayMs)
 {
 	let mode = 0;
+	let timer = null;
 	const initialMode = window.matchMedia('prefers-color-scheme: dark');
 
 	if (initialMode.matches)
@@ -30,6 +31,9 @@ function switchTheme()
 		},
 	];
 	return () => {
+		if (timer)
+			return;
+		timer = setTimeout(() => { timer = null; }, switchDelayMs);
 		mode = Number(!mode);
 		setThemes[mode]();
 	};
