@@ -278,7 +278,7 @@ async function getBorderCountries(borders)
 
 	try
 	{
-		for (neighborCode of borders)
+		for (const neighborCode of borders)
 		{
 			const response = await fetch(`https://restcountries.com/v3.1/alpha/${neighborCode}`);
 
@@ -287,9 +287,11 @@ async function getBorderCountries(borders)
 				throw new Error(`http: ${response.status}`);
 			}
 
-			const country = await response.json();
-
-			countries.push(country.name.common);
+			const data = await response.json();
+			for (const country of data)
+			{
+				countries.push(country.name.common);
+			}
 		}
 	}
 	catch (error)
@@ -298,7 +300,7 @@ async function getBorderCountries(borders)
 		return countries;
 	}
 
-	for (country of countries)
+	for (const country of countries)
 	{
 		const entry = document.createElement('li');
 		entry.innerHTML = `
@@ -315,7 +317,7 @@ function getLastNativeName(country)
 
 	for (const obj in country.name.nativeName)
 	{
-		name = obj;
+		name = country.name.nativeName[obj];
 	}
 	return name.common;
 }
