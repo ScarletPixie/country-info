@@ -247,7 +247,7 @@ function getCountryInfo(country)
 	informations.appendChild(addRow('Native Name', getLastNativeName(country)));
 	informations.appendChild(addPopulationRow(country.population));
 	informations.appendChild(addRegionRow(country.region));
-	informations.appendChild(addRow('Sub Regions:', country.subregion));
+	informations.appendChild(addRow('Sub Regions', country.subregion));
 	informations.appendChild(addCapitalsRow(country.capital));
 
 	return listEntry;
