@@ -201,7 +201,7 @@ function addCapitalsRow(capitals)
 		row.appendChild(document.createTextNode(capitals[i]));
 		i++;
 		if (i < capitals.length)
-			row.appendChild(document.createTextNode(','));
+			row.appendChild(document.createTextNode(', '));
 	}
 
 	return (row);
