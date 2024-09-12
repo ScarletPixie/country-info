@@ -194,7 +194,7 @@ function addCapitalsRow(capitals)
 	const key = document.createElement('span');
 
 	key.classList.add('bold-text');
-	key.textContent = `capital${(capitals.length > 1) ? 's' : ''}: `;
+	key.textContent = `Capital${(capitals.length > 1) ? 's' : ''}: `;
 	row.appendChild(key);
 	for (let i = 0; i < capitals.length; i++)
 	{
