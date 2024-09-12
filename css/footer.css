@@ -1,18 +1,17 @@
 body footer
 {
 	box-sizing: border-box;
-	margin-top: var(--main-margin);
+	margin-top: max(5vh, 5vw);
 	padding: 0.5rem var(--main-margin);
 	box-shadow: 0px -1px 10px var(--shadow-color);
 
+	background-color: var(--nav-bg-color);
 	width: 100%;
-
 }
 
-body footer header
+body footer h2
 {
 	text-align: center;
-	display: block;
 }
 
 body footer > ul
@@ -44,17 +43,6 @@ body footer address p
 }
 
 .about-link:visited
-{
-	color: inherit;
-}
-
-.no-link-decoration
-{
-	color: inherit;
-	text-decoration: none;
-}
-
-.no-link-decoration:visited
 {
 	color: inherit;
 }

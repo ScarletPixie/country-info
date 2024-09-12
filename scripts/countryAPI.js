@@ -1,4 +1,6 @@
 //	https://restcountries.com/v3.1/name/{commonName}
+//	https://restcountries.com/v3.1/alpha/{countryCode}
+
 
 /*
 <figure class="country-card small-shadow rounded-corner">
@@ -60,10 +62,91 @@ export async function createCard(jsonResponse, container)
 
 	container.appendChild(countryContainer);
 }
+/*
+<div aria-labelledby="flag">
+	<img src="images/co.png" alt="colombia flag" id="flag">
+</div>
+<section aria-label="information about colombia">
+	<h2 id="country-name">Colombia</h2>
+	<ul aria-labelledby="country-name" class="no-list-style country-info">
+		<li>
+			<ul class="no-list-style information-entry">
+				<li><span class="bold-text">Native Name: </span>Belge</li>
+				<li><span class="bold-text">Population: </span>11.319.511</li>
+				<li><span class="bold-text">Region: </span>Europe</li>
+				<li><span class="bold-text">Sub Region: </span>Western Europe</li>
+				<li><span class="bold-text">Capital: </span>Brussels</li>
+			</ul>
+		</li>
+		<li>
+			<ul class="no-list-style information-entry">
+				<li><span class="bold-text">Top Level Domain: </span>.be</li>
+				<li><span class="bold-text">Currencies: </span>Euro</li>
+				<li><span class="bold-text">Languages: </span>Dutch, French, German</li>
+			</ul>
+		</li>
+	</ul>
+	<section class="border-countries-section" aria-labelledby="border-countries" id="border-countries-section">
+		<h3 id="border-countries">border countries:</h3>
+		<ul class="no-list-style border-countries-list" aria-labelledby="border-countries">
+			<li>
+				<a href="#" class="bt-like no-link-decoration">France</a>
+			</li>
+			<li>
+				<a href="#" class="bt-like no-link-decoration">Germany</a>
+			</li>
+			<li>
+				<a href="#" class="bt-like no-link-decoration">Netherlands</a>
+			</li>
+		</ul>
+	</section>
+</section>
+*/
 
 export async function createCountryDetail(jsonResponse, container)
 {
+	if (!jsonResponse || !container)
+		return;
 
+	const country = await jsonResponse;
+
+	console.log(country);
+	const flag = createFlagContainer(country.flags.svg, country.flags.alt);
+
+	const infoSection = document.createElement('section');
+	const infoSectionHeading = document.createElement('h2');
+	const infoSectionList = document.createElement('ul');
+	const infoSectionBorderList = document.createElement('section');
+	const inforSectionBorderListHeading = document.createElement('h3');
+
+	//	container
+	container.appendChild(flag);
+	container.appendChild(infoSection);
+
+	//	infoSection
+	infoSection.setAttribute('aria-label', `information about ${country.name.common}`);
+	infoSection.appendChild(infoSectionHeading);
+	infoSection.appendChild(infoSectionList);
+	infoSection.appendChild(infoSectionBorderList);
+
+	//	inforSectionHeading
+	infoSectionHeading.appendChild(document.createTextNode(country.name.common));
+	infoSectionHeading.id = 'country-name';
+
+	//	infoSectionList
+	infoSectionList.appendChild(getCountryInfo(country));
+	infoSectionList.appendChild(getCountryEconomicsInfo(country));
+	infoSectionList.classList.add('no-list-style', 'country-info');
+	infoSectionList.setAttribute("aria-labelledby", "country-name");
+
+	//	inforSectionBorderList (makes API call)
+	inforSectionBorderListHeading.appendChild(document.createTextNode('Border Countries:'));
+	inforSectionBorderListHeading.id = 'border-countries';
+	infoSectionBorderList.appendChild(inforSectionBorderListHeading);
+	infoSectionBorderList.appendChild(await getBorderCountries(country.borders));
+	infoSectionBorderList.id = "border-countries-section";
+	infoSectionBorderList.classList.add("border-countries-section");
+	infoSectionBorderList.setAttribute('aria-labelledby', 'border-countries');
 }
 
 
@@ -111,7 +194,7 @@ function addCapitalsRow(capitals)
 	const key = document.createElement('span');
 
 	key.classList.add('bold-text');
-	key.textContent = `capitals: `;
+	key.textContent = `capital${(capitals.length > 1) ? 's' : ''}: `;
 	row.appendChild(key);
 	for (let i = 0; i < capitals.length; i++)
 	{
@@ -122,4 +205,140 @@ function addCapitalsRow(capitals)
 	}
 
 	return (row);
+}
+
+function addRow(key, value)
+{
+	const row = document.createElement('li');
+	const contentKey = document.createElement('span');
+
+	contentKey.classList.add('bold-text');
+	contentKey.textContent = `${key}: `;
+
+	row.appendChild(contentKey);
+	row.appendChild(document.createTextNode(value));
+
+	return (row);
+}
+
+//	country-detail specific
+function createFlagContainer(src, alt)
+{
+	const container = document.createElement('div');
+	const flag = document.createElement('img');
+
+	flag.src = src;
+	flag.alt = alt;
+	flag.id = 'flag';
+
+	container.appendChild(flag);
+	container.setAttribute('aria-labelledby', 'flag');
+	return container;
+}
+
+function getCountryInfo(country)
+{
+	const listEntry = document.createElement('li');
+	const informations = document.createElement('ul');
+
+	listEntry.appendChild(informations);
+
+	informations.classList.add("no-list-style", "information-entry");
+	informations.appendChild(addRow('Native Name', getLastNativeName(country)));
+	informations.appendChild(addPopulationRow(country.population));
+	informations.appendChild(addRegionRow(country.region));
+	informations.appendChild(addRow('Sub Regions:', country.subregion));
+	informations.appendChild(addCapitalsRow(country.capital));
+
+	return listEntry;
+}
+
+function getCountryEconomicsInfo(country)
+{
+	const listEntry = document.createElement('li');
+	const informations = document.createElement('ul');
+
+	listEntry.appendChild(informations);
+
+	informations.classList.add("no-list-style", "information-entry");
+	informations.appendChild(addRow('Top Level Domain', country.tld.join(', ')));
+	informations.appendChild(addRow('Currencies', getCurrencies(country.currencies)));
+	informations.appendChild(addRow('Languages', getLanguages(country.languages)))
+
+	return listEntry;
+}
+
+async function getBorderCountries(borders)
+{
+	let countries = [];
+	const borderList = document.createElement('ul');
+
+	borderList.classList.add("no-list-style", "border-countries-list");
+	borderList.setAttribute("aria-labelledby","border-countries");
+
+	try
+	{
+		for (neighborCode of borders)
+		{
+			const response = await fetch(`https://restcountries.com/v3.1/alpha/${neighborCode}`);
+
+			if (!response.ok)
+			{
+				throw new Error(`http: ${response.status}`);
+			}
+
+			const country = await response.json();
+
+			countries.push(country.name.common);
+		}
+	}
+	catch (error)
+	{
+		console.error(error);
+		return countries;
+	}
+
+	for (country of countries)
+	{
+		const entry = document.createElement('li');
+		entry.innerHTML = `
+			<a href="details.html?country=${country}" class="bt-like no-link-decoration">${country}</a>
+		`;
+		borderList.appendChild(entry);
+	}
+	return borderList;
+}
+
+function getLastNativeName(country)
+{
+	let name;
+
+	for (const obj in country.name.nativeName)
+	{
+		name = obj;
+	}
+	return name.common;
+}
+
+function getCurrencies(objs)
+{
+	let result = [];
+
+	for (const obj in objs)
+	{
+		result.push(objs[obj].name);
+	}
+	return result.join(', ');
+}
+
+
+function getLanguages(objs)
+{
+	let result = [];
+
+	for (const key in objs)
+	{
+		result.push(objs[key]);
+	}
+	return result.join(', ');
 }

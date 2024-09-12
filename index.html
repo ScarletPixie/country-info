@@ -32,17 +32,18 @@
 			Dark Mode
 		</button>
 	</nav>
-	<div aria-label="search bar">
-		<form action="index.html" class="search">
-			<div class="search-bar rounded-corner">
-				<button class="search-bt search-padding" tabindex="0" type="submit" aria-label="search">
+	<div>
+		<form action="index.html" class="search"  aria-label="search for countries">
+			<div class="search-bar rounded-corner" aria-label="search bar">
+				<button class="search-bt search-padding" tabindex="0" type="submit" aria-label="search!">
 					<ion-icon name="search-outline"></ion-icon>
 				</button>
 				<label aria-label="search for a country" for="search-field"></label>
-					<input type="text" name="country" placeholder="Search for a country..." class="search-input search-padding" id="search-field">
+				<input type="text" name="country" placeholder="Search for a country..." class="search-input search-padding" id="search-field">
 			</div>
-			<select name="region" class="filter-options rounded-corner filter-padding">
-				<option value="" class="sss">Filter by Region</option>
+			<label for="search-filter" aria-label="filter by region"></label>
+			<select name="region" class="filter-options rounded-corner filter-padding" id="search-filter">
+				<option value="">Filter by Region</option>
 				<option value="Africa">Africa</option>
 				<option value="America">America</option>
 				<option value="Asia">Asia</option>
@@ -69,9 +70,7 @@
 	-->
 	</main>
 	<footer>
-		<header>
-			<h2 id="social-media">Social Media</h2>
-		</header>
+		<h2 id="social-media">Social Media</h2>
 		<ul aria-labelledby="social-media">
 			<li>
 				<a href="https://github.com/ScarletPixie?tab=repositories" aria-label="Github" class="no-link-decoration">
@@ -89,7 +88,7 @@
 				</a>
 			</li>
 		</ul>
-		<address aria-label="about this website">
+		<address>
 			<p>
 				<span class="bold-text">Challenge by: </span>
 				<a href="https://www.frontendmentor.io/" aria-label="visit frontend mento" class="about-link">frontend mentor</a>
