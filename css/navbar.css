@@ -5,9 +5,9 @@
 	justify-content: space-between;
 	align-items: center;
 	box-shadow: 0 -1px 10px var(--shadow-color);
-	padding: min(1vw, 1vh) var(--main-margin);
+	padding: 0 var(--main-margin);
 	background-color: var(--nav-bg-color);
-	height: max(10%, 5vh)
+	height: max(4vw, 9vh);
 }
 
 h1

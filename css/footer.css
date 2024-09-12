@@ -1,0 +1,60 @@
+body footer
+{
+	box-sizing: border-box;
+	margin-top: var(--main-margin);
+	padding: 0.5rem var(--main-margin);
+	box-shadow: 0px -1px 10px var(--shadow-color);
+
+	width: 100%;
+
+}
+
+body footer header
+{
+	text-align: center;
+	display: block;
+}
+
+body footer > ul
+{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+
+	display: flex;
+	justify-content: space-between;
+}
+
+body footer > ul li
+{
+	margin: 1rem 0;
+	font-size: 3rem;
+}
+
+body footer address p
+{
+	padding: 0;
+	margin: 0;
+}
+
+.about-link
+{
+	color: inherit;
+	font-weight: 300;
+}
+
+.about-link:visited
+{
+	color: inherit;
+}
+
+.no-link-decoration
+{
+	color: inherit;
+	text-decoration: none;
+}
+
+.no-link-decoration:visited
+{
+	color: inherit;
+}

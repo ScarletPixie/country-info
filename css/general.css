@@ -42,7 +42,7 @@
 :root
 {
 	/*constants*/
-	--main-margin: clamp(2vw, 4rem, 3vw);
+	--main-margin: clamp(2vw, 5rem, 6vw);
 
 	--icon-path: url('../images/moon-dark.png');
 	--light-icon-path: url('../images/moon-light.png');
