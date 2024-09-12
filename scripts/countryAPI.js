@@ -278,20 +278,17 @@ async function getBorderCountries(borders)
 
 	try
 	{
-		for (const neighborCode of borders)
+		const response = await fetch(`https://restcountries.com/v3.1/alpha?codes=${borders.join(',')}`);
+
+		if (!response.ok)
 		{
-			const response = await fetch(`https://restcountries.com/v3.1/alpha/${neighborCode}`);
+			throw new Error(`http: ${response.status}`);
+		}
 
-			if (!response.ok)
-			{
-				throw new Error(`http: ${response.status}`);
-			}
-
-			const data = await response.json();
-			for (const country of data)
-			{
-				countries.push(country.name.common);
-			}
+		const data = await response.json();
+		for (const country of data)
+		{
+			countries.push(country.name.common);
 		}
 	}
 	catch (error)
