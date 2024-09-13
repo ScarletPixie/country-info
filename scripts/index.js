@@ -79,7 +79,7 @@ async function loadQuery()
 
 	if (countries.length < 1)
 	{
-		createStatusNotify(document.createTextNode('No results found.'), body, body.querySelector('footer'));
+		createStatusNotify(document.createTextNode('No results were found.'), body, body.querySelector('footer'));
 		return;
 	}
 
