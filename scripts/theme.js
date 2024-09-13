@@ -30,7 +30,7 @@ function switchTheme(switchDelayMs)
 	};
 }
 
-function applyTheme()
+export function applyTheme()
 {
 	let mode = 0;
 	if (!document.cookie)

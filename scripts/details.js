@@ -1,7 +1,4 @@
 import { createCountryDetail } from "./countryAPI.js";
-import { applyTheme } from "./theme.js";
-
-applyTheme();
 
 const main = document.querySelector('main');
 const knownQueries = Object.freeze({
