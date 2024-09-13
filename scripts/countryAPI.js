@@ -311,7 +311,7 @@ async function getBorderCountries(borders)
 	{
 		const entry = document.createElement('li');
 		entry.innerHTML = `
-			<a href="details.html?country=${country}" class="bt-like no-link-decoration small-shadow">${country}</a>
+			<a href="details.html?country=${country.replace(' ', '%20')}" class="bt-like no-link-decoration small-shadow">${country}</a>
 		`;
 		borderList.appendChild(entry);
 	}
