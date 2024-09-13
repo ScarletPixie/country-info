@@ -1,5 +1,5 @@
 import { createCountryDetail } from "./countryAPI.js";
-import { applyThrme } from "./theme.js";
+import { applyTheme } from "./theme.js";
 
 applyTheme();
 
