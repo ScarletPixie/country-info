@@ -28,7 +28,7 @@ async function loadDefault()
 
 	for (const country of defaultCountries)
 	{
-		if (!countey.independent)
+		if (country.independent === false)
 			continue;
 		try
 		{
