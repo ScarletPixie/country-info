@@ -19,7 +19,7 @@ else
 		if (!response.ok)
 			throw new Error(`http: ${response.status}`);
 		const data = await response.json();
-		createCountryDetail(country[0], main);
+		createCountryDetail(data[0], main);
 	}
 	catch (error)
 	{
