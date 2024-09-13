@@ -28,6 +28,8 @@ async function loadDefault()
 
 	for (const country of defaultCountries)
 	{
+		if (!countey.independent)
+			continue;
 		try
 		{
 			const response = await fetch(`https://restcountries.com/v3.1/name/${country}`);
@@ -67,7 +69,8 @@ async function loadQuery()
 	{
 		if (searchParser(country, searchByCountryName, searchByCountryRegion))
 		{
-			createCard(country, main);
+			if (country.independent === true)
+				createCard(country, main);
 		}
 	}
 }

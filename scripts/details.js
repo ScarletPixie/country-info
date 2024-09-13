@@ -1,4 +1,7 @@
 import { createCountryDetail } from "./countryAPI.js";
+import { applyThrme } from "./theme.js";
+
+applyTheme();
 
 const main = document.querySelector('main');
 const knownQueries = Object.freeze({
@@ -20,7 +23,7 @@ else
 			throw new Error(`http: ${response.status}`);
 		const data = await response.json();
 
-		for (country of data)
+		for (const country of data)
 		{
 			if (country.independent === true)
 				createCountryDetail(country, main);
