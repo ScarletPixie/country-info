@@ -1,10 +1,9 @@
 body footer
 {
 	box-sizing: border-box;
-	margin-top: max(5vh, 5vw);
+	margin-top: auto;
 	padding: 0.5rem var(--main-margin);
 	box-shadow: 0px -1px 10px var(--shadow-color);
-
 	background-color: var(--nav-bg-color);
 	width: 100%;
 }

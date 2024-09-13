@@ -149,6 +149,15 @@ export async function createCountryDetail(jsonResponse, container)
 	infoSectionBorderList.setAttribute('aria-labelledby', 'border-countries');
 }
 
+export function createStatusNotify(content, parentNode, referenceNode)
+{
+	const heading = document.createElement('h2');
+
+
+	parentNode.insertBefore(heading, referenceNode);
+	heading.appendChild(content);
+	heading.classList.add('status-heading');
+}
 
 //	helper functions
 function addRegionRow(value)

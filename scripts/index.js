@@ -1,8 +1,10 @@
 //	https://restcountries.com/v3.1/name/{commonName}
 
 import { createCard } from "./countryAPI.js";
+import { createStatusNotify } from "./countryAPI.js";
 
 const main = document.querySelector('main');
+const body = document.querySelector('body');
 const knownQueries = Object.freeze({
 	country: 'country',
 	region: 'region',
@@ -47,6 +49,7 @@ async function loadDefault()
 
 async function loadQuery()
 {
+	const countries = [];
 	let data;
 
 	try
@@ -70,8 +73,19 @@ async function loadQuery()
 		if (searchParser(country, searchByCountryName, searchByCountryRegion))
 		{
 			if (country.independent === true)
-				createCard(country, main);
+				countries.push(country);
 		}
+	}
+
+	if (countries.length < 1)
+	{
+		createStatusNotify(document.createTextNode('No results found.'), body, body.querySelector('footer'));
+		return;
+	}
+
+	for (const country of countries)
+	{
+		createCard(country, main);
 	}
 }
 
