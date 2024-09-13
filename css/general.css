@@ -117,7 +117,9 @@ body
 
 main
 {
-	margin: 0 var(--main-margin) var(--main-margin) var(--main-margin);
+	box-sizing: border-box;
+	padding: 0 var(--main-margin);
+	margin-bottom: var(--main-margin);
 }
 
 html, body
