@@ -288,7 +288,8 @@ async function getBorderCountries(borders)
 		const data = await response.json();
 		for (const country of data)
 		{
-			countries.push(country.name.common);
+			if (country.independent === true)
+				countries.push(country.name.common);
 		}
 	}
 	catch (error)
