@@ -26,7 +26,7 @@ export async function createCard(jsonResponse, container)
 	const data = await jsonResponse;
 
 	const cardLink = document.createElement('a');
-	cardLink.href = `details.html?country=${data.name.common}`;
+	cardLink.href = `details.html?country=${data.name.common.replace(' ', '%20')}`;
 	cardLink.setAttribute('aria-label', `View more details about ${data.name.common}.`);
 
 	const countryContainer = document.createElement('figure');
@@ -40,7 +40,7 @@ export async function createCard(jsonResponse, container)
 		info:		document.createElement('ul'),
 	};
 	countryContext.name.textContent = data.name.common;
-	countryContext.name.id = `country-${data.name.common}`;
+	countryContext.name.id = `country-${data.name.common.replace(' ', '-')}`;
 
 	countryContext.container.appendChild(countryContext.name);
 	countryContext.container.appendChild(countryContext.info);
