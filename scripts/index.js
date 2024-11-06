@@ -24,8 +24,8 @@ else
 async function loadDefault()
 {
 	const defaultCountries = [
-		'germany', 'usa', 'brasil', 'iceland',
-		'afghanistan', 'aland', 'albania', 'algeria',
+		'germany', 'united states', 'brazil', 'iceland',
+		'afghanistan', 'north macedonia', 'albania', 'algeria',
 	];
 
 	try
@@ -38,7 +38,7 @@ async function loadDefault()
 		for (const country of countries)
 		{
 			if (country.independent === true && defaultCountries.includes(country.name.common.toLowerCase()))
-				createCard(data[0], main);
+				createCard(country, main);
 		}
 	}
 	catch (error)
