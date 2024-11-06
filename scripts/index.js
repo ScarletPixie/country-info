@@ -28,22 +28,22 @@ async function loadDefault()
 		'afghanistan', 'aland', 'albania', 'algeria',
 	];
 
-	for (const country of defaultCountries)
+	try
 	{
-		if (country.independent === false)
-			continue;
-		try
+		const response = await fetch(`https://restcountries.com/v3.1/all`);
+		if (!response.ok)
+			throw new Error(`http: ${response.status}`);
+		const countries = await response.json();
+
+		for (const country of countries)
 		{
-			const response = await fetch(`https://restcountries.com/v3.1/name/${country}`);
-			if (!response.ok)
-				throw new Error(`http: ${response.status}`);
-			const data = await response.json();
-			createCard(data[0], main);
+			if (country.independent === true && defaultCountries.includes(country.name.common.toLowerCase()))
+				createCard(data[0], main);
 		}
-		catch (error)
-		{
-			console.error(error);
-		}
+	}
+	catch (error)
+	{
+		console.log(error);
 	}
 }
 
