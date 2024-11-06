@@ -38,8 +38,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/ScarletPixie/country-info)
-- Live Site URL: [Add live site URL here](https://scarletpixie.github.io/country-info/)
+- Solution URL: [repository](https://github.com/ScarletPixie/country-info)
+- Live Site URL: [live site](https://scarletpixie.github.io/country-info/)
 
 ### Built with
 
