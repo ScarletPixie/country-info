@@ -110,7 +110,6 @@ export async function createCountryDetail(jsonResponse, container)
 
 	const country = await jsonResponse;
 
-	console.log(country);
 	const flag = createFlagContainer(country.flags.svg, country.flags.alt);
 
 	const infoSection = document.createElement('section');
