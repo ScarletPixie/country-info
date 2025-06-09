@@ -30,7 +30,7 @@ async function loadDefault()
 
 	try
 	{
-		const response = await fetch(`https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags`);
+		const response = await fetch(`https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags,independent`);
 		if (!response.ok)
 			throw new Error(`http: ${response.status}`);
 		const countries = await response.json();
@@ -54,7 +54,7 @@ async function loadQuery()
 
 	try
 	{
-		const response = await fetch(`https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags`);
+		const response = await fetch(`https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags,independent`);
 		if (!response.ok)
 			throw new Error(`http: ${response.status}`);
 		data = await response.json();
